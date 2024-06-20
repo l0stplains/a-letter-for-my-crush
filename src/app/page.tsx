@@ -8,7 +8,7 @@ export default function Home() {
 
   const [isClicked, setIsClicked] = useState(false);
 
-  function handleMouseEnter(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleMouseOver(e: React.MouseEvent<HTMLButtonElement>) {
     let x: number = Math.random() * 500 - 250;
     let y: number = Math.random() * 500 - 400;
     e.currentTarget.style.transform = `translate(${x}px, ${y}px)`;
@@ -31,6 +31,7 @@ export default function Home() {
         width={0}
         height={0}
         style={{ display: isClicked ? "none" : "block",  width: 'auto', height: '300px', transform: 'translate(-15px, 0)' }}
+        unoptimized
         priority
       />
       <Image
@@ -39,6 +40,7 @@ export default function Home() {
         width={0}
         height={0}
         style={{ display: !isClicked ? "none" : "block",  width: 'auto', height: '300px', transform: 'translate(-15px, 0)' }}
+        unoptimized
         priority
       />
       <div className="grid grid-cols-4 justify-items-center gap-4 max-w-3xl">
@@ -51,7 +53,8 @@ export default function Home() {
         </button>
         <button
           style={{ display: isClicked ? "none" : "block" }}
-          onMouseEnter={handleMouseEnter}
+          onMouseOver={handleMouseOver}
+          onClick={handleMouseOver}
           className="button inline-block border-2 border-blue-700 col-span-2 rounded-full bg-cyan-100 w-40 pb-2 pt-2.5 text-base font-bold leading-normal text-blue-700 shadow-primary-3 transition duration-150 ease-in-out  motion-reduce:transition-none "
         >
           No
